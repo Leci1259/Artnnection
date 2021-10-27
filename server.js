@@ -1,8 +1,13 @@
 const express = require("express");
 const routes = require("./routes");
+<<<<<<< Updated upstream
 const sequelize = require('./config/connection');
 const exphbs = require('express-handlebars');
 
+=======
+const exphbs = require('express-handlebars');
+// import sequelize connection
+>>>>>>> Stashed changes
 
 const app = express();
 const PORT = process.env.PORT || 3001;

@@ -28,15 +28,19 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Search</a>
       </li>
-      {{#if logged_in}}
-      <li class="nav-item">
+      <<<<<<< Updated upstream {{#if logged_in}} <li class="nav-item">
         <a class="nav-link" href="#">Login</a>
-      </li>
-      {{else}}
-      <li class="nav-item">
-        <a class="nav-link" href="#">Log Out</a>
-      </li>
-      {{/if}}
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="#">Log Out</a>
+        </li>
+        {{/if}}
+        =======
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+        >>>>>>> Stashed changes
     </ul>
 
   </header>
@@ -55,7 +59,10 @@
               <input class="form-input" type="password" id="password-login" />
             </div>
             <div class="form-group">
-              <button class="btn btn-primary loginbutton" type="submit">login</button>
+              <<<<<<< Updated upstream <button class="btn btn-primary loginbutton" type="submit">login</button>
+                =======
+                <button class="btn btn-primary" type="submit">login</button>
+                >>>>>>> Stashed changes
             </div>
           </form>
 
@@ -79,7 +86,10 @@
               <input class="form-input" type="password" id="password-login" />
             </div>
             <div class="form-group">
-              <button class="btn btn-primary loginbutton" type="submit">Sign Up!</button>
+              <<<<<<< Updated upstream <button class="btn btn-primary loginbutton" type="submit">Sign Up!</button>
+                =======
+                <button class="btn btn-primary" type="submit">Sign Up!</button>
+                >>>>>>> Stashed changes
             </div>
           </form>
 
