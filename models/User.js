@@ -24,10 +24,10 @@ User.init(
               isEmail: true,
             },
         },
-        //TODO: Add favorites sections
-        // favorites: {
-
-        // }
+        password: {
+            type: DataTypes.STRING(30),
+            allowNull: false,
+        },
     },
     {
         sequelize,
