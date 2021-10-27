@@ -28,14 +28,27 @@ User.init(
             type: DataTypes.STRING(30),
             allowNull: false,
         },
+
     },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: "User",
-    }
+    email: {
+      type: DataTypes.STRING(30),
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
+    },
+    //TODO: Add favorites sections
+    // favorites: {
+
+    // }
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "User",
+  }
 );
 
 module.exports = User;
