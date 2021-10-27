@@ -90,3 +90,7 @@ select option {
 i {
   color: blue;
 }
+
+.profile a {
+  color: white;
+}

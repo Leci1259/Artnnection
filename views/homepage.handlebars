@@ -60,24 +60,26 @@
       <h3 class="text-center">
         Checkout This Week's Top Artists!
       </h3>
-      <!--Insert Handlebar-->
-      {{#each artists as |artist| }}
-      <div class="card" style="width: 18rem;">
-        <div class="card-body text-center">
-          <h5 class="card-title">
-            <!--Insert Artist name-->
-            {{artist.name}}
-          </h5>
-          <h6 class="card-subtitle">
-            <a href="#">
-              <!--insert email-->
-              {{artist.email}}
-            </a>
-          </h6>
-          <button class="homebutton"> <a href="#" class="card-link">See My Pieces</a></button>
+      <section class="d-flex flex row">
+        <!--Insert Handlebar-->
+        {{#each artists as |artist| }}
+        <div class="card" style="width: 18rem;">
+          <div class="card-body text-center">
+            <h5 class="card-title">
+              <!--Insert Artist name-->
+              {{artist.name}}
+            </h5>
+            <h6 class="card-subtitle">
+              <a href="#">
+                <!--insert email-->
+                {{artist.email}}
+              </a>
+            </h6>
+            <button class="homebutton"> <a href="#" class="card-link">See My Pieces</a></button>
+          </div>
         </div>
-      </div>
-      {{/each}}
+        {{/each}}
+      </section>
     </section>
     <br>
 
@@ -85,26 +87,28 @@
       <h3 class="text-center">
         Checkout This Week's Top Selling Pieces!
       </h3>
-      <!--Insert Handlebar-->
-      {{#each artPieces as |art| }}
-      <div class="card" style="width: 18rem;">
-        <div class="card-body text-center">
-          <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
-          <h5 class="card-title">
-            <!--Insert Piece Name-->
-            {{art.name}} by {{art.artist}}
-          </h5>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Select Buy Option</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-          <br>
-          <button class="homebutton"> <a href="#" class="card-link buy">Buy Me</a></button>
+      <section class="d-flex flex row">
+        <!--Insert Handlebar-->
+        {{#each artPieces as |art| }}
+        <div class="card" style="width: 18rem;">
+          <div class="card-body text-center">
+            <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
+            <h5 class="card-title">
+              <!--Insert Piece Name-->
+              {{art.name}} by {{art.artist}}
+            </h5>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Select Buy Option</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <br>
+            <button class="homebutton"> <a href="#" class="card-link buy">Buy Me</a></button>
+          </div>
         </div>
-      </div>
-      {{/each}}
+        {{/each}}
+      </section>
     </section>
   </main>
 
