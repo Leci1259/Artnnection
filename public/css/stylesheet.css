@@ -1,0 +1,92 @@
+body {
+  background-color: #072f5f;
+  font-family: "Architects Daughter", cursive;
+}
+header {
+  background-image: radial-gradient(
+      closest-side,
+      transparent 0%,
+      transparent 75%,
+      #2694ab 76%,
+      #e59572 85%,
+      #4dbedf 86%,
+      #4dbedf 94%,
+      #3895d3 95%,
+      #3895d3 103%,
+      #4dbedf 104%,
+      #4dbedf 112%,
+      #2694ab 113%,
+      #2694ab 121%,
+      #072f5f 122%,
+      #072f5f 130%,
+      #58cced 131%,
+      #58cced 140%
+    ),
+    radial-gradient(
+      closest-side,
+      transparent 0%,
+      transparent 75%,
+      #2694ab 76%,
+      #e59572 85%,
+      #4dbedf 86%,
+      #4dbedf 94%,
+      #3895d3 95%,
+      #3895d3 103%,
+      #4dbedf 104%,
+      #4dbedf 112%,
+      #2694ab 113%,
+      #2694ab 121%,
+      #072f5f 122%,
+      #072f5f 130%,
+      #58cced 131%,
+      #58cced 140%
+    );
+  background-size: 110px 110px;
+  background-color: #072f5f;
+  background-position: 0 0, 55px 55px;
+}
+h1 {
+  color: white;
+  text-shadow: 0 0 25px #072f5f;
+  font-size: 6rem;
+}
+.nav li a {
+  background-color: #072f5f;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.card-body {
+  background-color: #3895d3;
+  color: white;
+}
+.card-text span {
+  color: #072f5f;
+  text-shadow: 0 0 25px white;
+}
+h3 {
+  color: white;
+  font-weight: bold;
+}
+
+.card a {
+  color: #3895d3;
+}
+
+.homebutton,
+.loginbutton,
+.searchbutton {
+  background-color: white;
+  color: #3895d3;
+}
+
+.card-subtitle a {
+  color: white;
+}
+select option {
+  color: #3895d3;
+}
+
+i {
+  color: blue;
+}
