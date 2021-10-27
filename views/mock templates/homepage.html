@@ -28,14 +28,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Search</a>
       </li>
-      <<<<<<< Updated upstream {{#if logged_in}} <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="#">Login</a>
-        </li>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log Out</a>
-        </li>
-        {{/if}}
+      </li>
     </ul>
 
   </header>
@@ -44,7 +39,7 @@
     <section class="cards">
       <div class="card one">
         <div class="card-body">
-          <h5 class="card-title text-center">Welcome to Artnnection</h5>
+          <h3 class="card-title text-center">Welcome to Artnnection</h3>
           <h6 class="text-center"> Where Artists and Art Connoisseurs Are Connected </h6>
           <p class="card-text">
             <span class="type">Artists </span>: Create a Profile to be able to post, share, and sell your wonderful
@@ -65,26 +60,21 @@
       <h3 class="text-center">
         Checkout This Week's Top Artists!
       </h3>
-      <section class="d-flex flex row">
-        <!--Insert Handlebar-->
-        {{#each artists as |artist| }}
-        <div class="card" style="width: 18rem;">
-          <div class="card-body text-center">
-            <h5 class="card-title">
-              <!--Insert Artist name-->
-              {{artist.name}}
-            </h5>
-            <h6 class="card-subtitle">
-              <a href="#">
-                <!--insert email-->
-                {{artist.email}}
-              </a>
-            </h6>
-            <button class="homebutton"> <a href="#" class="card-link">See My Pieces</a></button>
-          </div>
+      <!--Insert Handlebar-->
+      <div class="card" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">
+            <!--Insert Artist name-->Name
+          </h5>
+          <h6 class="card-subtitle">
+            <a href="#">
+              <!--insert email-->
+              Email
+            </a>
+          </h6>
+          <button class="homebutton"> <a href="#" class="card-link">See My Pieces</a></button>
         </div>
-        {{/each}}
-      </section>
+      </div>
     </section>
     <br>
 
@@ -92,37 +82,29 @@
       <h3 class="text-center">
         Checkout This Week's Top Selling Pieces!
       </h3>
-       <section class="d-flex flex row">
-        <!--Insert Handlebar-->
-        {{#each artPieces as |art| }}
-        <div class="card" style="width: 18rem;">
-          <div class="card-body text-center">
-            <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
-            <h5 class="card-title">
-              <!--Insert Piece Name-->
-              {{art.name}} by {{art.artist}}
-              <br>
-              {{art.price}}
-            </h5>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Select Buy Option</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <br>
-            <button class="homebutton"> <a href="#" class="card-link buy">Buy Me</a></button>
-          </div>
+      <!--Insert Handlebar-->
+      <div class="card" style="width: 18rem;">
+        <div class="card-body text-center">
+          <img src="..." class="card-img-top" alt="...">
+          <h5 class="card-title">
+            <!--Insert Piece Name-->Name
+          </h5>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Select Buy Option</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <br>
+          <button class="homebutton"> <a href="#" class="card-link buy">Buy Me</a></button>
         </div>
-        {{/each}}
-    </section>
-  
+      </div>
     </section>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="../public/js/"></script>
+
 </body>
 
 </html>
