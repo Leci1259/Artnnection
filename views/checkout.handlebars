@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Art E-Commerce Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/stylesheet.css">
+    <link rel="stylesheet" href="../../public/css/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="text-center">
+            Artnnection
+        </h1>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Artists' Collections</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Search</a>
+            </li>
+            {{#if logged_in}}
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="logout">Log Out</a>
+            </li>
+            {{else}}
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+            {{/if}}
+            <li class="nav-item">
+                <a class="nav-link" href="#">Checkout</a>
+            </li>
+        </ul>
+
+    </header>
+
+    <main class="container">
+        <section class="cards">
+            <div class="card one">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Checkout Your Chosen Art</h3>
+                    <p class="card-text">
+                        Make sure to confirm choices and shipping address before you checkout. We will not be
+                        responsible for any shipping errors due to wrong address input. Upon checkout, a confirmation
+                        email will be sent to email followed by an email containing tracking information after 3
+                        processing days.
+                        <br>
+                        **Shipping Address must be the same as billing for security reasons**
+                    </p>
+                </div>
+            </div>
+        </section>
+        <br>
+
+        <section class="cards">
+            <div class="card one">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-75">
+                            <div class="container">
+                                <form class="checkout-form" action="/action_page.php">
+
+                                    <div class="row">
+                                        <div class="col-50">
+                                            <h3>Billing Address</h3>
+                                            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                                            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                            <input type="text" id="email" name="email" placeholder="john@example.com">
+                                            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                                            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                                            <label for="city"><i class="fa fa-institution"></i> City</label>
+                                            <input type="text" id="city" name="city" placeholder="Atlanta">
+
+                                            <div class="row">
+                                                <div class="col-50">
+                                                    <label for="state">State</label>
+                                                    <input type="text" id="state" name="state" placeholder="GA">
+                                                </div>
+                                                <div class="col-50">
+                                                    <label for="zip">Zip</label>
+                                                    <input type="text" id="zip" name="zip" placeholder="30200">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-50">
+                                            <h3>Payment</h3>
+                                            <label for="fname">Accepted Cards</label>
+                                            <div class="icon-container">
+                                                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                                <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                            </div>
+                                            <label for="cname">Name on Card</label>
+                                            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                                            <label for="ccnum">Credit card number</label>
+                                            <input type="text" id="ccnum" name="cardnumber"
+                                                placeholder="1111-2222-3333-4444">
+                                            <label for="expmonth">Exp Month</label>
+                                            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+
+                                            <div class="row">
+                                                <div class="col-50">
+                                                    <label for="expyear">Exp Year</label>
+                                                    <input type="text" id="expyear" name="expyear" placeholder="2018">
+                                                </div>
+                                                <div class="col-50">
+                                                    <label for="cvv">CVV</label>
+                                                    <input type="text" id="cvv" name="cvv" placeholder="352">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="sameadr"> Shipping address same
+                                        as
+                                        billing
+                                    </label>
+                                    <input type="submit" value="Checkout" class="btn">
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-25">
+                            <div class="container">
+                                <h4>Cart
+                                    <span class="price" style="color:black">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <b>4</b>
+                                    </span>
+                                </h4>
+                                {{#each cart as |item| }}
+                                <p id='price-item'><a href="#">{{item.name}} </a> <span
+                                        class="price">${{item.price}}</span></p>
+                                <p id='price-item'><a href="#">{{item.name}}</a> <span
+                                        class="price">${{item.price}}</span></p>
+                                <p id='price-item'><a href="#">{{item.name}}</a> <span
+                                        class="price">${{item.price}}</span></p>
+                                <p id='price-item'><a href="#">{{item.name}}</a> <span class="price">${{item.price}}
+                                    </span></p>
+                                <hr>
+                                <p>Subtotal <span class="price" style="color:white"><b>${{sum of prices}}</b></span></p>
+                                <p>Shipping <span class="price" style="color:white"><b>$15</b></span></p>
+                                <p>Total <span class="price" style="color:white"><b>${{subtotal + shipping}}</b></span>
+                                </p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="../public/js/checkout.js"></script>
+    {{#if logged_in}}
+    <script src="../public/js/logout.js"></script>
+    {{else}}
+    <script src="../public/js/login.js"></script>
+    {{/if}}
+</body>
+
+</html>
