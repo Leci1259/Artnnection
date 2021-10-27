@@ -36,11 +36,6 @@
           <a class="nav-link" href="#">Log Out</a>
         </li>
         {{/if}}
-        =======
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-        >>>>>>> Stashed changes
     </ul>
 
   </header>
@@ -97,7 +92,7 @@
       <h3 class="text-center">
         Checkout This Week's Top Selling Pieces!
       </h3>
-      <<<<<<< Updated upstream <section class="d-flex flex row">
+       <section class="d-flex flex row">
         <!--Insert Handlebar-->
         {{#each artPieces as |art| }}
         <div class="card" style="width: 18rem;">
@@ -121,28 +116,7 @@
         </div>
         {{/each}}
     </section>
-    =======
-    <!--Insert Handlebar-->
-    {{#each artPieces as |art| }}
-    <div class="card" style="width: 18rem;">
-      <div class="card-body text-center">
-        <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
-        <h5 class="card-title">
-          <!--Insert Piece Name-->
-          {{art.name}}
-        </h5>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Select Buy Option</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-        <br>
-        <button> <a href="#" class="card-link buy">Buy Me</a></button>
-      </div>
-    </div>
-    {{/each}}
-    >>>>>>> Stashed changes
+  
     </section>
   </main>
 
