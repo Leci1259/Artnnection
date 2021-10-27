@@ -28,19 +28,18 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Search</a>
       </li>
-      <<<<<<< Updated upstream {{#if logged_in}} <li class="nav-item">
+      {{#if logged_in}}
+      <li class="nav-item">
+        <a class="nav-link" href="#">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Log Out</a>
+      </li>
+      {{else}}
+      <li class="nav-item">
         <a class="nav-link" href="#">Login</a>
-        </li>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log Out</a>
-        </li>
-        {{/if}}
-        =======
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-        >>>>>>> Stashed changes
+      </li>
+      {{/if}}
     </ul>
 
   </header>

@@ -28,14 +28,18 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Search</a>
       </li>
-      <<<<<<< Updated upstream {{#if logged_in}} <li class="nav-item">
+      {{#if logged_in}}
+      <li class="nav-item">
+        <a class="nav-link" href="#">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Log Out</a>
+      </li>
+      {{else}}
+      <li class="nav-item">
         <a class="nav-link" href="#">Login</a>
-        </li>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log Out</a>
-        </li>
-        {{/if}}
+      </li>
+      {{/if}}
     </ul>
 
   </header>
@@ -52,9 +56,9 @@
             <br>
             <br>
 
-            <span class="type">Art Connoisseurs</span>: Find and Buy your favorite art pieces from our wonderful
-            collection of
-            artists. Create a Profile to be able to save your favorite and make your checkout process quicker.
+            <span class="type">Art Connoisseurs</span>: Create a Profile to be able to find and buy your favorite art
+            pieces from our wonderful
+            collection of artists as well as save your favorite art pieces.
           </p>
         </div>
       </div>
@@ -92,7 +96,7 @@
       <h3 class="text-center">
         Checkout This Week's Top Selling Pieces!
       </h3>
-       <section class="d-flex flex row">
+      <section class="d-flex flex row">
         <!--Insert Handlebar-->
         {{#each artPieces as |art| }}
         <div class="card" style="width: 18rem;">
@@ -115,8 +119,8 @@
           </div>
         </div>
         {{/each}}
-    </section>
-  
+      </section>
+
     </section>
   </main>
 
