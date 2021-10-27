@@ -15,9 +15,10 @@ Art.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    Art_name: {
-      type: DataTypes.STRING,
+    art_name: {
+      type: DataTypes.STRING(50),
       allowNull: false,
+      unique: true,
     },
     price: {
       type: DataTypes.DECIMAL,
@@ -34,10 +35,10 @@ Art.init(
         isNumeric: true,
       },
     },
-    category_id: {
+    artist_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Category",
+        model: "Artist",
         key: "id",
       },
     },
