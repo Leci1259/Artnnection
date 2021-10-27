@@ -33,7 +33,7 @@
                 <a class="nav-link" href="#">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Log Out</a>
+                <a class="nav-link" href="#" id="logout">Log Out</a>
             </li>
             {{else}}
             <li class="nav-item">
@@ -90,7 +90,11 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
+    {{#if logged_in}}
+    <script src="../public/js/logout.js"></script>
+    {{else}}
+    <script src="../public/js/login.js"></script>
+    {{/if}}
 </body>
 
 </html>

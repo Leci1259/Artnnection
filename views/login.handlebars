@@ -33,7 +33,7 @@
         <a class="nav-link" href="#">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Log Out</a>
+        <a class="nav-link" href="#" id="logout">Log Out</a>
       </li>
       {{else}}
       <li class="nav-item">
@@ -49,6 +49,7 @@
         <div class="card-body">
           <h5 class="card-title text-center">Login</h5>
           <form class="form login-form text-center">
+
             <div class="form-group">
               <label for="email-login">email:</label>
               <input class="form-input" type="text" id="email-login" />
@@ -58,10 +59,9 @@
               <input class="form-input" type="password" id="password-login" />
             </div>
             <div class="form-group">
-              <<<<<<< Updated upstream <button class="btn btn-primary loginbutton" type="submit">login</button>
-                =======
-                <button class="btn btn-primary" type="submit">login</button>
-                >>>>>>> Stashed changes
+              <button class="btn btn-primary loginbutton" type="submit">login</button>
+
+              <button class="btn btn-primary" type="submit">login</button>
             </div>
           </form>
 
@@ -75,20 +75,21 @@
       <div class="card one">
         <div class="card-body">
           <h5 class="card-title text-center">Signup</h5>
-          <form class="form login-form text-center">
+          <form class="form signup-form text-center">
+            <div class="form-group">
+              <label for="name-signup">name:</label>
+              <input class="form-input" type="text" id="name-signup" />
+            </div>
             <div class="form-group">
               <label for="email-login">email:</label>
-              <input class="form-input" type="text" id="email-login" />
+              <input class="form-input" type="text" id="email-signup" />
             </div>
             <div class="form-group">
               <label for="password-login">password:</label>
-              <input class="form-input" type="password" id="password-login" />
+              <input class="form-input" type="password" id="password-signup" />
             </div>
             <div class="form-group">
-              <<<<<<< Updated upstream <button class="btn btn-primary loginbutton" type="submit">Sign Up!</button>
-                =======
-                <button class="btn btn-primary" type="submit">Sign Up!</button>
-                >>>>>>> Stashed changes
+              <button class="btn btn-primary loginbutton" type="submit">Sign Up!</button>
             </div>
           </form>
 
@@ -99,6 +100,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../public/js/login.js"></script>
+
 </body>
 
 </html>
