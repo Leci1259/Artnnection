@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/css/stylesheet.css">
+    <link rel="stylesheet" href="../../public/css/stylesheet.css">
 
 </head>
 
@@ -39,16 +39,14 @@
         <section class="cards">
             <div class="card one">
                 <div class="card-body">
-                    <h3 class="card-title text-center">{{artist.name}}</h3>
+                    <h3 class="card-title text-center">My Profile</h3>
                     <p class="card-text text-center profile">
-                        {{artist.id}}
+                        id
                         <br>
-                        <a href="mailto:{{artist.email}}"> {{artist.email}} </a>
+                        name
                         <br>
-                        <a href="{{artist.twitter}}"> {{artist.twitter}}</a>
+                        <a href=""> Email </a>
                         <br>
-                        <br>
-                        {{artist.biography}}
                     </p>
                 </div>
             </div>
@@ -57,33 +55,28 @@
 
         <section>
             <h3 class="text-center">
-                My Work!
+                My Favorites!
             </h3>
             <!--Insert Handlebar-->
-            <section class="d-flex flex row">
-                <!--Insert Handlebar-->
-                {{#each artPieces as |art| }}
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body text-center">
-                        <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
-                        <h5 class="card-title">
-                            <!--Insert Piece Name-->
-                            {{art.name}} by {{art.artist}}
-                        </h5>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select Buy Option</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                        <br>
-                        <button class="homebutton"> <a href="#" class="card-link buy">Buy Me</a></button>
-                    </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body text-center">
+                    <img src="..." class="card-img-top" alt="...">
+                    <h5 class="card-title">
+                        <!--Insert Piece Name-->Name
+                    </h5>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Select Buy Option</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <br>
+                    <button class="homebutton"> <a href="#" class="card-link buy">Buy Me</a></button>
                 </div>
-                {{/each}}
-            </section>
+            </div>
         </section>
         <br>
+        <!-- Dynamically generated art section upon artist click-->
 
 
     </main>

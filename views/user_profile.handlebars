@@ -39,16 +39,14 @@
         <section class="cards">
             <div class="card one">
                 <div class="card-body">
-                    <h3 class="card-title text-center">{{artist.name}}</h3>
+                    <h3 class="card-title text-center">My Profile</h3>
                     <p class="card-text text-center profile">
-                        {{artist.id}}
+                        id
                         <br>
-                        <a href="mailto:{{artist.email}}"> {{artist.email}} </a>
+                        name
                         <br>
-                        <a href="{{artist.twitter}}"> {{artist.twitter}}</a>
+                        <a href=""> Email </a>
                         <br>
-                        <br>
-                        {{artist.biography}}
                     </p>
                 </div>
             </div>
@@ -57,10 +55,10 @@
 
         <section>
             <h3 class="text-center">
-                My Work!
+                My Favorites!
             </h3>
             <!--Insert Handlebar-->
-            <section class="d-flex flex row">
+            < <section class="d-flex flex row">
                 <!--Insert Handlebar-->
                 {{#each artPieces as |art| }}
                 <div class="card" style="width: 18rem;">
@@ -81,9 +79,10 @@
                     </div>
                 </div>
                 {{/each}}
-            </section>
+        </section>
         </section>
         <br>
+        <!-- Dynamically generated art section upon artist click-->
 
 
     </main>
