@@ -24,6 +24,10 @@ Artist.init(
         isEmail: true,
       }
     },
+    password: {
+      type: DataTypes.STRING(30),
+      allowNull: false,
+  },
     biography: {
       type: DataTypes.STRING(140),
       allowNull: true,
