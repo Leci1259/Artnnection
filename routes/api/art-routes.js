@@ -17,8 +17,9 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const artData = await Art.findAll({
-      artist_id: req.params.id,
-    });
+      where: {
+        artist_id: req.params.id,
+    }});
     const art = artData.map((project) => project.get({ plain: true }));
     res.status(200).json(art);
   } catch (err) {
@@ -30,9 +31,10 @@ router.get("/:id", async (req, res) => {
 router.post("/post", withAuth, async (req, res) => {
   try {
     const newArt = await Art.create({
-      // get data from form
-      //   title: ,
-      //   creator: ,
+      art_name: req.body.art_name,
+      price: req.body.price,
+      stock: req.body.stock,
+      artist_id: req.body.artist.id
     });
     res.status(200).json(newArt);
   } catch (err) {
