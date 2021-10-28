@@ -30,18 +30,10 @@ User.init(
         },
 
     },
-    email: {
-      type: DataTypes.STRING(30),
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
-    },
     //TODO: Add favorites sections
     // favorites: {
 
     // }
-  },
   {
     sequelize,
     timestamps: false,

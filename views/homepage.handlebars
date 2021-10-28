@@ -1,138 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<section class="cards">
+  <div class="card one">
+    <div class="card-body">
+      <h5 class="card-title text-center">Welcome to Artnnection</h5>
+      <h6 class="text-center"> Where Artists and Art Connoisseurs Are Connected </h6>
+      <p class="card-text">
+        <span class="type">Artists </span>: Create a Profile to be able to post, share, and sell your wonderful
+        creations.
+        <br>
+        <br>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Art E-Commerce Platform</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../public/css/stylesheet.css">
+        <span class="type">Art Connoisseurs</span>: Find and Buy your favorite art pieces from our wonderful
+        collection of artists. Create a Profile to be able to save your favorite pieces.
+      </p>
+    </div>
+  </div>
+</section>
+<br>
 
-</head>
-
-<body>
-  <header>
-    <h1 class="text-center">
-      Artnnection
-    </h1>
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Artists' Collections</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Search</a>
-      </li>
-      {{#if logged_in}}
-      <li class="nav-item">
-        <a class="nav-link" href="#">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" id="logout">Log Out</a>
-      </li>
-      {{else}}
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
-      {{/if}}
-      <li class="nav-item">
-        <a class="nav-link" href="#">Checkout</a>
-      </li>
-    </ul>
-
-  </header>
-
-  <main class="container">
-    <section class="cards">
-      <div class="card one">
-        <div class="card-body">
-          <h5 class="card-title text-center">Welcome to Artnnection</h5>
-          <h6 class="text-center"> Where Artists and Art Connoisseurs Are Connected </h6>
-          <p class="card-text">
-            <span class="type">Artists </span>: Create a Profile to be able to post, share, and sell your wonderful
-            creations.
-            <br>
-            <br>
-
-            <span class="type">Art Connoisseurs</span>: Find and Buy your favorite art pieces from our wonderful
-            collection of artists. Create a Profile to be able to save your favorite pieces.
-          </p>
-        </div>
+<section>
+  <h3 class="text-center">
+    Checkout This Week's Top Artists!
+  </h3>
+  <section class="d-flex flex row">
+    <!--Insert Handlebar-->
+    {{#each artists as |artist| }}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body text-center">
+        <h5 class="card-title">
+          <!--Insert Artist name-->
+          {{artist.name}}
+        </h5>
+        <h6 class="card-subtitle">
+          <a href="#">
+            <!--insert email-->
+            {{artist.email}}
+          </a>
+        </h6>
+        <button class="homebutton"> <a href="#" class="card-link">See My Pieces</a></button>
       </div>
-    </section>
-    <br>
+    </div>
+    {{/each}}
+  </section>
+</section>
+<br>
 
-    <section>
-      <h3 class="text-center">
-        Checkout This Week's Top Artists!
-      </h3>
-      <section class="d-flex flex row">
-        <!--Insert Handlebar-->
-        {{#each artists as |artist| }}
-        <div class="card" style="width: 18rem;">
-          <div class="card-body text-center">
-            <h5 class="card-title">
-              <!--Insert Artist name-->
-              {{artist.name}}
-            </h5>
-            <h6 class="card-subtitle">
-              <a href="#">
-                <!--insert email-->
-                {{artist.email}}
-              </a>
-            </h6>
-            <button class="homebutton"> <a href="#" class="card-link">See My Pieces</a></button>
-          </div>
-        </div>
-        {{/each}}
-      </section>
-    </section>
-    <br>
+<section>
+  <h3 class="text-center">
+    Checkout This Week's Top Selling Pieces!
+  </h3>
+  <section class="d-flex flex row">
+    <!--Insert Handlebar-->
+    {{#each artPieces as |art| }}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body text-center">
+        <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
+        <h5 class="card-title">
+          <!--Insert Piece Name-->
+          {{art.name}} by {{art.artist}}
+          <br>
+          {{art.price}}
+        </h5>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Select Buy Option</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <br>
+        <button class="homebutton"> <a href="#" class="card-link buy">Add to Cart</a></button>
+      </div>
+    </div>
+    {{/each}}
+  </section>
 
-    <section>
-      <h3 class="text-center">
-        Checkout This Week's Top Selling Pieces!
-      </h3>
-      <section class="d-flex flex row">
-        <!--Insert Handlebar-->
-        {{#each artPieces as |art| }}
-        <div class="card" style="width: 18rem;">
-          <div class="card-body text-center">
-            <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
-            <h5 class="card-title">
-              <!--Insert Piece Name-->
-              {{art.name}} by {{art.artist}}
-              <br>
-              {{art.price}}
-            </h5>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Select Buy Option</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <br>
-            <button class="homebutton"> <a href="#" class="card-link buy">Add to Cart</a></button>
-          </div>
-        </div>
-        {{/each}}
-      </section>
-
-    </section>
-  </main>
-
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  {{#if logged_in}}
-  <script src="../public/js/logout.js"></script>
-  {{else}}
-  <script src="../public/js/login.js"></script>
-  {{/if}}
-</body>
-
-</html>
+</section>
