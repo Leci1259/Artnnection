@@ -14,7 +14,7 @@ const checkoutFormHandler = async (event) => {
     const expYear = document.querySelector('#expyear').value.trim();
     const ccCVV = document.querySelector('#cvv').value.trim();
     
-
+//need to add minus stock from database and add cart to post
 
   
     if ( name && email && address && city && state && zip && ccName && ccNum && expMonth && expYear && ccCVV) {
