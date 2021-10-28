@@ -16,12 +16,4 @@ Artist.hasMany(Art, {
   foreignKey: "id",
 });
 
-// User.hasMany(Artist, {
-//   foreignKey: "favoriteArtists",
-// });
-
-// Artist.belongsToMany(User, {
-//   foreignKey: "id",
-// });
-
 module.exports = router;

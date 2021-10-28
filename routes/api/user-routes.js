@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const bcrypt = require('bcrypt');
 const { User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
@@ -16,8 +17,8 @@ router.get("/", async (req, res) => {
 router.post("/signup", async (req, res) => {
   try {
     const newUser = await User.create({
-      // get data from login form
-      // name: ,
+      name: req.body.name,
+      email: req.body.email
     });
     res.status(200).json(newUser);
   } catch (err) {
@@ -46,8 +47,8 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
+    req.session.create(() => {
+      req.session.email = userData.email;
       req.session.logged_in = true;
 
       res.json({ user: userData, message: "You are now logged in!" });
