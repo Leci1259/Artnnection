@@ -23,18 +23,24 @@ router.get('/', async (req, res) => {
 // Artist Profile Route
 router.get('/artistprofile/:id', async (req, res) => {
   try {
-    const artData = await Art.findAll();
-    const artistData = await Artist.findAll();
+    const artData = await Art.findAll({
+      where: {
+        artist_id: req.params.id
+      }
+    });
 
-    const artist = artistData.map((project) => project.get({ plain: true }));
+    const artistData = await Artist.findByPk(req.params.id);
+
+    const artist = artistData.get({ plain: true });
     const artPieces = artData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('artist_profile', { 
-      artist, artData
+      artist, artPieces
     });
   } catch (err) {
     res.status(500).json(err);
+    console.log(err)
   }
 });
 

@@ -3,11 +3,11 @@
         <div class="card-body">
             <h3 class="card-title text-center">{{artist.name}}</h3>
             <p class="card-text text-center profile">
-                {{artist.id}}
+                id: {{artist.id}}
                 <br>
                 <a href="mailto:{{artist.email}}"> {{artist.email}} </a>
                 <br>
-                <a href="{{artist.twitter}}"> {{artist.twitter}}</a>
+                <a href="https://twitter.com/{{artist.twitter}}"> Twitter: {{artist.twitter}}</a>
                 <br>
                 <br>
                 {{artist.biography}}
@@ -30,9 +30,9 @@
                 <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
                 <h5 class="card-title">
                     <!--Insert Piece Name-->
-                    <span>{{art.name}}</span> by {{art.artist}}
+                    <span>{{art.art_name}}</span>
                     <br>
-                    <span>{{art.price}}</span>
+                    <span>${{art.price}}</span>
                 </h5>
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Select Buy Option</option>
@@ -41,7 +41,7 @@
                     <option value="3">Three</option>
                 </select>
                 <br>
-                <button class="homebutton"> <a href="#" class="card-link buy">Add to Cart</a></button>
+                <button class="homebutton">Add to Cart</button>
             </div>
         </div>
         {{/each}}

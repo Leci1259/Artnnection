@@ -30,12 +30,13 @@
           {{artist.name}}
         </h5>
         <h6 class="card-subtitle">
-          <a href="#">
+          <a href="mailto:{{this.email}}">
             <!--insert email-->
             {{artist.email}}
           </a>
         </h6>
-        <button class="homebutton seeWorkButton"> <a href="#" class="card-link">See My Pieces</a></button>
+        <button class="homebutton seeWorkButton"> <a href="/artistprofile/{{this.id}}" class="card-link">See My
+            Pieces</a></button>
       </div>
     </div>
     {{/each}}
