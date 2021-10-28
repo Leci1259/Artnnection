@@ -1,110 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<section class="cards">
+    <div class="card one">
+        <div class="card-body">
+            <h5 class="card-title text-center">Search bar</h5>
+            <div class="input-group">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" id="search-input" />
+                <select class="form-select search-category" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">Artist</option>
+                    <option value="2">Art</option>
+                </select>
+                <button type="button" class="btn btn-outline-primary searchbutton">search</button>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Art E-Commerce Platform</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/css/stylesheet.css">
-
-</head>
-
-<body>
-    <header>
-        <h1 class="text-center">
-            Artnnection
-        </h1>
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Artists' Collections</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Search</a>
-            </li>
-            {{#if logged_in}}
-            <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" id="logout">Log Out</a>
-            </li>
-            {{else}}
-            <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-            </li>
-            {{/if}}
-            <li class="nav-item">
-                <a class="nav-link" href="#">Checkout</a>
-            </li>
-        </ul>
-
-    </header>
-    <main class="container .d-flex flex-row">
-        <section class="cards">
-            <div class="card one">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Search bar</h5>
-                    <div class="input-group">
-                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                            aria-describedby="search-addon" id="search-input" />
-                        <select class="form-select search-category" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">Artist</option>
-                            <option value="2">Art</option>
-                        </select>
-                        <button type="button" class="btn btn-outline-primary searchbutton">search</button>
-
-                    </div>
-
-                </div>
             </div>
-        </section>
-        <br>
-        <br>
-        <!-- Dynamically generated section for results-->
-        <section>
-            <h3 class="text-center">
-                Search Results
-            </h3>
-            <!--Insert Handlebar-->
-            {{#each artPieces as |art| }}
-            <div class="card" style="width: 18rem;">
-                <div class="card-body text-center">
-                    <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
-                    <h5 class="card-title">
-                        <!--Insert Piece Name-->
-                        <span id="art-title">{{art.name}} </span> by {{art.artist}}
-                        <br>
-                        <span id="art-price">{{art.price}} </span>
-                    </h5>
-                    <select class="form-select buy-option" aria-label="Default select example">
-                        <option selected>Select Buy Option</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <br>
-                    <button class="homebutton cartbutton"> <a href="#" class="card-link buy">Add to Cart</a></button>
-                </div>
-            </div>
-            {{/each}}
-        </section>
 
-    </main>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    {{#if logged_in}}
-    <script src="../public/js/logout.js"></script>
-    {{else}}
-    <script src="../public/js/login.js"></script>
-    {{/if}}
-</body>
-
-</html>
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<!-- Dynamically generated section for results-->
+<section>
+    <h3 class="text-center">
+        Search Results
+    </h3>
+    <!--Insert Handlebar-->
+    {{#each artPieces as |art| }}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body text-center">
+            <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
+            <h5 class="card-title">
+                <!--Insert Piece Name-->
+                <span id="art-title">{{art.name}} </span> by {{art.artist}}
+                <br>
+                <span id="art-price">{{art.price}} </span>
+            </h5>
+            <select class="form-select buy-option" aria-label="Default select example">
+                <option selected>Select Buy Option</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+            <br>
+            <button class="homebutton cartbutton"> <a href="#" class="card-link buy">Add to Cart</a></button>
+        </div>
+    </div>
+    {{/each}}
+</section>
