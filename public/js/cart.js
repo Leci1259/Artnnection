@@ -37,30 +37,33 @@ const addToCartHandler = async (event) => {
     const artPrice= event.target.sibling(2).children(2).value.trim();
     const buyOption =event.target.sibling(3).value;
 
+    console.log(artName);
+    console.log(artPrice);
+    console.log(buyOption);
     //use event.target to grab values from that card
 
     // const buyOption = document.querySelector('.buy-option').value.trim();
     // const artName = document.querySelector('#art-title').value.trim();
     // const artPrice= document.querySelector('#art-price').value.trim();
 
-    const response = await fetch('api/', {
-        method: 'POST',
-        body: JSON.stringify({buyOption,artName,artPrice}),
-    })
+    // const response = await fetch('api/', {
+    //     method: 'POST',
+    //     body: JSON.stringify({buyOption,artName,artPrice}),
+    // })
 
-    if (response.ok) {
-        // If successful, redirect the browser to the profile page
-        document.location.replace('/user/checkout');
-      } else {
-        alert(response.statusText);
-      }
+    // if (response.ok) {
+    //     // If successful, redirect the browser to the profile page
+    //     document.location.replace('/user/checkout');
+    //   } else {
+    //     alert(response.statusText);
+    //   }
 
 }
 
 
 document
-  .querySelector('.searchbutton')
-  .addEventListener('click', searchBarHandler);
-   document
+//   .querySelector('.searchbutton')
+//   .addEventListener('click', searchBarHandler);
+//    document
   .querySelector('.cartbutton')
   .addEventListener('click', addToCartHandler);
