@@ -53,11 +53,11 @@
                     <h5 class="card-title text-center">Search bar</h5>
                     <div class="input-group">
                         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                            aria-describedby="search-addon" />
-                        <select class="form-select" aria-label="Default select example">
+                            aria-describedby="search-addon" id="search-input" />
+                        <select class="form-select search-category" aria-label="Default select example">
                             <option selected>Open this select menu</option>
-                            <option value="1">Artist Name</option>
-                            <option value="2">Art Name</option>
+                            <option value="1">Artist</option>
+                            <option value="2">Art</option>
                         </select>
                         <button type="button" class="btn btn-outline-primary searchbutton">search</button>
 
@@ -80,18 +80,18 @@
                     <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
                     <h5 class="card-title">
                         <!--Insert Piece Name-->
-                        {{art.name}} by {{art.artist}}
+                        <span id="art-title">{{art.name}} </span> by {{art.artist}}
                         <br>
-                        {{art.price}}
+                        <span id="art-price">{{art.price}} </span>
                     </h5>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select buy-option" aria-label="Default select example">
                         <option selected>Select Buy Option</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
                     <br>
-                    <button class="homebutton"> <a href="#" class="card-link buy">Add to Cart</a></button>
+                    <button class="homebutton cartbutton"> <a href="#" class="card-link buy">Add to Cart</a></button>
                 </div>
             </div>
             {{/each}}
