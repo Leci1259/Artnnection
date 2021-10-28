@@ -1,11 +1,11 @@
 const seeMyWorkHandler = async (event) => {
-    //grab artist name from card
-    const artistName =event.target.sibling(1).value;
+    const card = event.target
+     //grab artist name from card
+    const artistName =$(card).siblings().eq(0).text().trim();
 
     //artist name => id
 
     
-
     //get request for that artist to render their info on the artist profile page
     const response = await fetch('api/artist/', {
         method: 'GET',
