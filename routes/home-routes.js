@@ -42,12 +42,11 @@ router.get('/artistprofile/:id', async (req, res) => {
 router.get('/artists', async (req, res) => {
   try {
     const artistData = await Artist.findAll();
-
-    const artist = artistData.map((project) => project.get({ plain: true }));
+    const artists = artistData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('artists', { 
-      artist
+      artists
     });
   } catch (err) {
     res.status(500).json(err);

@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../public/css/stylesheet.css">
-
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <link rel="stylesheet" href="css/checkout.css">
 </head>
 
 <body>
@@ -20,28 +20,28 @@
     </h1>
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link active" aria-current="page" href="/">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Artists' Collections</a>
+        <a class="nav-link" href="/artists">Artists' Collections</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Search</a>
+        <a class="nav-link" href="/search">Search</a>
       </li>
       {{#if logged_in}}
       <li class="nav-item">
-        <a class="nav-link" href="#">Profile</a>
+        <a class="nav-link" href="/user_profile:{{this.user.id}}">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" id="logout">Log Out</a>
+        <a class="nav-link" href="/logout" id="logout">Log Out</a>
       </li>
       {{else}}
       <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
+        <a class="nav-link" href="/login">Login</a>
       </li>
       {{/if}}
       <li class="nav-item">
-        <a class="nav-link" href="#">Checkout</a>
+        <a class="nav-link" href="/checkout">Checkout</a>
       </li>
     </ul>
 
