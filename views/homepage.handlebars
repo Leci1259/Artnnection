@@ -28,14 +28,21 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Search</a>
       </li>
-      <<<<<<< Updated upstream {{#if logged_in}} <li class="nav-item">
+      {{#if logged_in}}
+      <li class="nav-item">
+        <a class="nav-link" href="#">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" id="logout">Log Out</a>
+      </li>
+      {{else}}
+      <li class="nav-item">
         <a class="nav-link" href="#">Login</a>
-        </li>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log Out</a>
-        </li>
-        {{/if}}
+      </li>
+      {{/if}}
+      <li class="nav-item">
+        <a class="nav-link" href="#">Checkout</a>
+      </li>
     </ul>
 
   </header>
@@ -53,8 +60,7 @@
             <br>
 
             <span class="type">Art Connoisseurs</span>: Find and Buy your favorite art pieces from our wonderful
-            collection of
-            artists. Create a Profile to be able to save your favorite and make your checkout process quicker.
+            collection of artists. Create a Profile to be able to save your favorite pieces.
           </p>
         </div>
       </div>
@@ -92,7 +98,7 @@
       <h3 class="text-center">
         Checkout This Week's Top Selling Pieces!
       </h3>
-       <section class="d-flex flex row">
+      <section class="d-flex flex row">
         <!--Insert Handlebar-->
         {{#each artPieces as |art| }}
         <div class="card" style="width: 18rem;">
@@ -111,18 +117,22 @@
               <option value="3">Three</option>
             </select>
             <br>
-            <button class="homebutton"> <a href="#" class="card-link buy">Buy Me</a></button>
+            <button class="homebutton"> <a href="#" class="card-link buy">Add to Cart</a></button>
           </div>
         </div>
         {{/each}}
-    </section>
-  
+      </section>
+
     </section>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="../public/js/"></script>
+  {{#if logged_in}}
+  <script src="../public/js/logout.js"></script>
+  {{else}}
+  <script src="../public/js/login.js"></script>
+  {{/if}}
 </body>
 
 </html>
