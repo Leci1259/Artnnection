@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "check-password-strength": "^2.0.3",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",

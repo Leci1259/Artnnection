@@ -70,12 +70,17 @@
                         </div>
                         <div class="form-group">
                             <label for="password-login">password:</label>
-                            <input class="form-input" type="password" id="password-login" />
+                            <input class="form-input" type="password" id="password-login psw-input" />
                         </div>
+                        <div id="pswmeter"></div>
+                        <div id="pswmeter-message"></div>
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Sign Up!</button>
                         </div>
                     </form>
+                    <p id="passStrength"></p>
+                    <br>
+                    <p id="passParam"></p>
 
                 </div>
             </div>
@@ -83,7 +88,10 @@
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="../public/js/login.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../../public/js/login.js"></script>
+    <script src="../../public/js/pswmeter.js"></script>
 </body>
 
 </html>
