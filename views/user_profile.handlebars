@@ -3,11 +3,11 @@
         <div class="card-body">
             <h3 class="card-title text-center">My Profile</h3>
             <p class="card-text text-center profile">
-                id
+                {{user.id}}
                 <br>
-                name
+                {{user.name}}
                 <br>
-                <a href="mailto:{{user.email}}"> Email </a>
+                <a href="mailto:{{user.email}}"> {{user.email}} </a>
                 <br>
             </p>
         </div>
@@ -20,7 +20,7 @@
         My Favorites!
     </h3>
     <!--Insert Handlebar-->
-    < <section class="d-flex flex row">
+    <section class="d-flex flex row">
         <!--Insert Handlebar-->
         {{#each artPieces as |art| }}
         <div class="card" style="width: 18rem;">
@@ -43,5 +43,22 @@
             </div>
         </div>
         {{/each}}
-</section>
+    </section>
+    <section class="cards">
+        <div class="card one">
+            <div class="card-body">
+                <h3 class="card-title text-center">Add Your Art</h3>
+                <form class="text-center addArt-form">
+                    <label for="lname">Your Id:</label>
+                    <input type="text" id="artist_id" name="artistid"><br>
+                    <label for="fname">Art title:</label>
+                    <input type="text" id="art_name" name="artname"><br>
+                    <label for="lname">Price:</label>
+                    <input type="text" id="art_price" name="artprice"><br>
+                    <label for="lname">Stock:</label>
+                    <input type="text" id="stock" name="stock">
+                </form>
+            </div>
+        </div>
+    </section>
 </section>
