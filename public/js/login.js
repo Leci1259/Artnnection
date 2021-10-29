@@ -1,3 +1,6 @@
+const { passwordStrength } = require('check-password-strength');
+
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -29,6 +32,12 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
+  const passText= passwordStrength(password).value;
+  $('#passStrength').text(passText)
+  if (passText !== 'Strong') {
+    $('#passParam').text("Password not strong enough. Please have at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character, and have a length of at least 8.")
+  }
+  else{
   if (name && email && password) {
     const response = await fetch('/api/user/signup', {
       method: 'POST',
@@ -42,7 +51,9 @@ const signupFormHandler = async (event) => {
       alert(response.statusText);
     }
   }
+}
 };
+
 
 document
   .querySelector('.login-form')
