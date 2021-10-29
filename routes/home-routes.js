@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Art, Artist, User } = require('../models');
+const { Art, Artist, User, Cart } = require('../models');
 
 // Home Page Route
 router.get('/', async (req, res) => {
@@ -60,14 +60,24 @@ router.get('/artists', async (req, res) => {
 });
 
 // Checkout Page Route
-router.get('/checkout', async (req, res) => {
+router.get('/checkout/:id', async (req, res) => {
   try {
-   
-    //Add cart data
-    const cart = 'item'
+    const userCart = await Cart.findOne({
+      where: {
+        user_id: req.params.id
+      }
+    });
+
+    const cartData = Art.findAll({
+      where: {
+        id: userCart.art_id
+      }
+    })
+
+    const cart = cartData.get({plain: true});
+
     // Pass serialized data and session flag into template
     res.render('checkout', { 
-      // cart data
       cart
     });
   } catch (err) {
