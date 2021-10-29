@@ -5,7 +5,7 @@ const searchBarHandler = async (event) => {
     const searchCategory = document.querySelector('.search-category').value.trim();
 
     if ( searchInput && (searchCategory == 'Artist')) {
-        const response = await fetch('api/user/', {
+        const response = await fetch(`api/artist/${searchInput}`, {
             method: 'GET',
         })
 
@@ -18,7 +18,7 @@ const searchBarHandler = async (event) => {
     }
 
     if ( searchInput && (searchCategory == 'Art')) {
-        const response = await fetch('api/art/', {
+        const response = await fetch(`api/art/${searchInput}`, {
             method: 'GET',
         })
 
