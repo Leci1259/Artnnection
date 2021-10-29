@@ -69,4 +69,14 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// Create New User
+router.post("/checkout", async (req, res) => {
+  try {
+    console.log("Checkout Successfully")
+    res.status(200);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
