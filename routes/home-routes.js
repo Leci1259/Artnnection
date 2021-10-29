@@ -60,7 +60,7 @@ router.get('/artists', async (req, res) => {
 });
 
 // Checkout Page Route
-router.get('/checkout/:id', async (req, res) => {
+router.get('/checkout', async (req, res) => {
   try {
     const userCart = await Cart.findOne({
       where: {
