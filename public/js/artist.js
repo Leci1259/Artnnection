@@ -5,9 +5,8 @@ const seeMyWorkHandler = async (event) => {
 
     //artist name => id
 
-    
     //get request for that artist to render their info on the artist profile page
-    const response = await fetch('api/artist/', {
+    const response = await fetch(`api/artist/${id}`, {
         method: 'GET',
     })
 
