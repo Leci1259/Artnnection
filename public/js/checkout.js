@@ -1,4 +1,4 @@
-const cart = localStorage.getItem('cart');
+const cart = JSON.parse(localStorage.getItem('cart'));
 const products = cart.name;
 const prices = cart.price;
 
