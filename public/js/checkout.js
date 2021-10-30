@@ -1,21 +1,25 @@
 const cart = JSON.parse(localStorage.getItem('cart'));
 const products = cart.name;
 const prices = cart.price;
-const subtotal=0;
+var subtotal=0;
 //getting subtotal from price array
 for (let i=0; i<prices.length;i++) {
-  subtotal += prices[i];
+  let numString = prices[i].split('$');
+  let num =Number(numString[1]);
+  subtotal += num;
 }
 const finalPrice=subtotal + 15;
 
 //append cart values to checkout
 for (let i = 0; i < products.length; i++) {
- 
-  $( ".product-holder" ).append( `<p id='price-item'>${products[i]}<span class="price">$${prices[i]}</span></p>`);
-}
-if (i>=products.length) {
+ if (i>=products.length) {
   $( ".product-holder" ).append( `<hr>`);
+ } 
+  $( ".product-holder" ).append( `<p id='price-item'>${products[i]}<span class="price">${prices[i]}</span></p>`);
+  
 }
+
+
 //append cart totals to checkout
  $('.subtotal').append(`<b>$${subtotal}</b>`)
  $('.shipping').append(`<b>$15</b>`)
