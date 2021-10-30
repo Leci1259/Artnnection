@@ -65,24 +65,9 @@ router.get('/artists', async (req, res) => {
 // Checkout Page Route
 router.get('/checkout', async (req, res) => {
   try {
-    const userCart = await Cart.findOne({
-      where: {
-        user_id: req.params.id
-      }
-    });
-
-    const cartData = Art.findAll({
-      where: {
-        id: userCart.art_id
-      }
-    })
-
-    const cart = cartData.get({plain: true});
-
+    
     // Pass serialized data and session flag into template
-    res.render('checkout', { 
-      cart
-    });
+    res.render('checkout');
   } catch (err) {
     res.status(500).json(err);
   }

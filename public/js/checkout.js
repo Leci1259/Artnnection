@@ -1,8 +1,14 @@
 const cart = JSON.parse(localStorage.getItem('cart'));
 const products = cart.name;
 const prices = cart.price;
+const subtotal=0;
+//getting subtotal from price array
+for (let i=0; i<prices.length;i++) {
+  subtotal += prices[i];
+}
+const finalPrice=subtotal + 15;
 
-
+//append cart values to checkout
 for (let i = 0; i < products.length; i++) {
  
   $( ".product-holder" ).append( `<p id='price-item'>${products[i]}<span class="price">$${prices[i]}</span></p>`);
@@ -10,6 +16,10 @@ for (let i = 0; i < products.length; i++) {
 if (i>=products.length) {
   $( ".product-holder" ).append( `<hr>`);
 }
+//append cart totals to checkout
+ $('.subtotal').append(`<b>$${subtotal}</b>`)
+ $('.shipping').append(`<b>$15</b>`)
+ $('.finalPrice').append(`<b>$${finalPrice}</b>`)
 
 
 const checkoutFormHandler = async (event) => {
@@ -40,6 +50,8 @@ const checkoutFormHandler = async (event) => {
       });
   
       if (response.ok) {
+        //clear local storage
+        localStorage.clear();
         // If successful, redirect the browser to the profile page
         document.location.replace('/user/checkout');
       } else {
