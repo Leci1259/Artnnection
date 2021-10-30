@@ -1,7 +1,6 @@
 var cart={
   name:[],
   price:[],
-  option:[],
 }
 
 const addToCartHandler = async (event) => {
@@ -10,11 +9,8 @@ const addToCartHandler = async (event) => {
      console.log(button);
     const artName = $(button).siblings().eq(1).children().eq(0).text();
     const artPrice= $(button).siblings().eq(1).children().eq(2).text();
-    const buyOption =$(button).siblings().eq(2).val();
-
     cart.name.push(artName);
     cart.price.push(artPrice);
-    cart.option.push(buyOption);
 
     localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -26,5 +22,5 @@ const addToCartHandler = async (event) => {
 
 
 document
-  .querySelector('.cartbutton')
+  .querySelector('.card-holder')
   .addEventListener('click', addToCartHandler);

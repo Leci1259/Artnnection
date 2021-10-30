@@ -4,7 +4,9 @@ const { Art, Artist, User, Cart } = require('../models');
 // Home Page Route
 router.get('/', async (req, res) => {
   try {
-    const artData = await Art.findAll();
+    const artData = await Art.findAll({
+      include: Artist,
+    });
     const artistData = await Artist.findAll();
 
     const artPieces = artData.map((project) => project.get({ plain: true }));
@@ -26,7 +28,8 @@ router.get('/artistprofile/:id', async (req, res) => {
     const artData = await Art.findAll({
       where: {
         artist_id: req.params.id
-      }
+      },
+      include: Artist,
     });
 
     const artistData = await Artist.findByPk(req.params.id);
@@ -60,26 +63,20 @@ router.get('/artists', async (req, res) => {
 });
 
 // Checkout Page Route
-router.get('/checkout/:id', async (req, res) => {
+router.get('/checkout', async (req, res) => {
   try {
-    const userCart = await Cart.findOne({
-      where: {
-        user_id: req.params.id
-      }
-    });
-
-    const cartData = Art.findAll({
-      where: {
-        id: userCart.art_id
-      }
-    })
-
-    const cart = cartData.get({plain: true});
-
     // Pass serialized data and session flag into template
-    res.render('checkout', { 
-      cart
-    });
+    res.render('checkout');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Checkout Done Page Route
+router.get('/checkoutSuccess', async (req, res) => {
+  try {
+    // Pass serialized data and session flag into template
+    res.render('checkout_done');
   } catch (err) {
     res.status(500).json(err);
   }

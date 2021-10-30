@@ -9,15 +9,6 @@ const seeMyWorkHandler = async (event) => {
     const response = await fetch(`api/artist/${artist_id}`, {
         method: 'GET',
     })
-
-    if (response.ok) {
-        // If successful, redirect the browser to the profile page
-        document.location.replace('/user/artist_profile');
-      } else {
-        alert(response.statusText);
-      }
 }
 
-document
-.querySelector('.seeWorkButton')
-.addEventListener('click', seeMyWorkHandler);
+$('.seeWorkButton').on('click', seeMyWorkHandler);
