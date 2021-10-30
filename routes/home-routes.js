@@ -108,16 +108,32 @@ router.get('/logout', async (req, res) => {
 // Search Page Route
 router.get('/search', async (req, res) => {
   try {
-    const artData = await Art.findAll();
-    const artistData = await Artist.findAll();
+    // const artData = await Art.findAll();
+    // const artistData = await Artist.findAll();
 
-    const artist = artistData.map((project) => project.get({ plain: true }));
+    // const artist = artistData.map((project) => project.get({ plain: true }));
+    // const artPieces = artData.map((project) => project.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    // res.render('search', { 
+    //   artist, artPieces
+    // });
+    res.render('search');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Search Page Route
+router.get('/search-results/:id', async (req, res) => {
+  console.log("here meep")
+  try {
+    const artData = await Art.findAll({where: { id: req.params.id }});
     const artPieces = artData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('search', { 
-      artist, artPieces
-    });
+     console.log(artPieces)
+     res.render('search', { artPieces });
   } catch (err) {
     res.status(500).json(err);
   }

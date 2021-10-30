@@ -16,21 +16,21 @@ Artist.hasMany(Art, {
   foreignKey: "id",
 });
 
-Artist.belongsToMany(Favorite, {
-  through: {
-    model: User,
-    unique: false
-  }
-});
+// Artist.belongsToMany(Favorite, {
+//   through: {
+//     model: User,
+//     unique: false
+//   }
+// });
 
-Favorite.hasMany(Artist, {
-  foreignKey: 'id',
-});
+// Favorite.hasMany(Artist, {
+//   foreignKey: 'id',
+// });
 
 
-User.hasMany(Favorite, {
-  foreignKey: 'artist_id',
-});
+// User.hasMany(Favorite, {
+//   foreignKey: 'artist_id',
+// });
 
 // Favorite.belongsToMany(User, {
 //   through: Artist,
