@@ -30,10 +30,6 @@ User.init(
         },
 
     },
-    //TODO: Add favorites sections
-    // favorites: {
-
-    // }
   {
     sequelize,
     timestamps: false,

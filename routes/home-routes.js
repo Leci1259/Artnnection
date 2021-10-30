@@ -108,16 +108,6 @@ router.get('/logout', async (req, res) => {
 // Search Page Route
 router.get('/search', async (req, res) => {
   try {
-    // const artData = await Art.findAll();
-    // const artistData = await Artist.findAll();
-
-    // const artist = artistData.map((project) => project.get({ plain: true }));
-    // const artPieces = artData.map((project) => project.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    // res.render('search', { 
-    //   artist, artPieces
-    // });
     res.render('search');
   } catch (err) {
     res.status(500).json(err);

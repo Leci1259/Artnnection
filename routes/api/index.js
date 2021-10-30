@@ -16,27 +16,6 @@ Artist.hasMany(Art, {
   foreignKey: "id",
 });
 
-// Artist.belongsToMany(Favorite, {
-//   through: {
-//     model: User,
-//     unique: false
-//   }
-// });
-
-// Favorite.hasMany(Artist, {
-//   foreignKey: 'id',
-// });
-
-
-// User.hasMany(Favorite, {
-//   foreignKey: 'artist_id',
-// });
-
-// Favorite.belongsToMany(User, {
-//   through: Artist,
-//   foreignKey: 'art_id'
-// });
-
 User.hasOne(Cart, {
   foreignKey: 'id'
 });
