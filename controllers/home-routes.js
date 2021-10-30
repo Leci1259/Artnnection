@@ -4,7 +4,9 @@ const { Art, Artist, User, Cart } = require('../models');
 // Home Page Route
 router.get('/', async (req, res) => {
   try {
-    const artData = await Art.findAll();
+    const artData = await Art.findAll({
+      include: Artist,
+    });
     const artistData = await Artist.findAll();
 
     const artPieces = artData.map((project) => project.get({ plain: true }));
@@ -26,7 +28,8 @@ router.get('/artistprofile/:id', async (req, res) => {
     const artData = await Art.findAll({
       where: {
         artist_id: req.params.id
-      }
+      },
+      include: Artist,
     });
 
     const artistData = await Artist.findByPk(req.params.id);
@@ -108,7 +111,7 @@ router.get('/logout', async (req, res) => {
 // Search Page Route
 router.get('/search', async (req, res) => {
   try {
-    const artData = await Art.findAll();
+    const artData = await Art.findAll({ include:Artist});
     const artistData = await Artist.findAll();
 
     const artist = artistData.map((project) => project.get({ plain: true }));

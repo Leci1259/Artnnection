@@ -26,5 +26,5 @@ const addToCartHandler = async (event) => {
 
 
 document
-  .querySelector('.cartbutton')
+  .querySelector('.card-holder')
   .addEventListener('click', addToCartHandler);
