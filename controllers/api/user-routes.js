@@ -18,10 +18,12 @@ router.post("/signup", async (req, res) => {
   try {
     const newUser = await User.create({
       name: req.body.name,
-      email: req.body.email
+      email: req.body.email,
+      password: req.body.password
     });
     res.status(200).json(newUser);
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });

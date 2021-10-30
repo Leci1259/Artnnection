@@ -105,16 +105,22 @@ router.get('/logout', async (req, res) => {
 // Search Page Route
 router.get('/search', async (req, res) => {
   try {
-    const artData = await Art.findAll({ include:Artist});
-    const artistData = await Artist.findAll();
+    res.render('search');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-    const artist = artistData.map((project) => project.get({ plain: true }));
+// Search Page Route
+router.get('/search-results/:id', async (req, res) => {
+  console.log("here meep")
+  try {
+    const artData = await Art.findAll({where: { id: req.params.id }});
     const artPieces = artData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('search', { 
-      artist, artPieces
-    });
+     console.log(artPieces)
+     res.render('search', { artPieces });
   } catch (err) {
     res.status(500).json(err);
   }
