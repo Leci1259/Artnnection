@@ -4,27 +4,27 @@ const searchBarHandler = async (event) => {
     const searchInput = document.querySelector('#search-input').value.trim();
     const searchCategory = document.querySelector('.search-category').value.trim();
 
-    if ( searchInput && (searchCategory == 'Artist')) {
-        const response = await fetch('api/user/', {
+    if ( searchInput && (searchCategory == '1')) { //Artist
+        const response = await fetch(`api/artist/${searchInput}`, {
             method: 'GET',
         })
 
         if (response.ok) {
             // If successful, redirect the browser to the profile page
-            document.location.replace('/user/checkout');
+            document.location.replace(`artistprofile/${searchInput}`);
           } else {
             alert(response.statusText);
           }
     }
 
-    if ( searchInput && (searchCategory == 'Art')) {
-        const response = await fetch('api/art/', {
+    if ( searchInput && (searchCategory == '2')) { //Art
+        const response = await fetch(`api/art/${searchInput}`, {
             method: 'GET',
         })
 
         if (response.ok) {
             // If successful, redirect the browser to the profile page
-            document.location.replace('/user/checkout');
+            document.location.replace(`search-results/${searchInput}`);
           } else {
             alert(response.statusText);
           }

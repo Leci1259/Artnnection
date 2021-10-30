@@ -1,10 +1,12 @@
 const router = require('express').Router();
-const { Art, Artist, User } = require('../models');
+const { Art, Artist, User, Cart } = require('../models');
 
 // Home Page Route
 router.get('/', async (req, res) => {
   try {
-    const artData = await Art.findAll();
+    const artData = await Art.findAll({
+      include: Artist,
+    });
     const artistData = await Artist.findAll();
 
     const artPieces = artData.map((project) => project.get({ plain: true }));
@@ -26,7 +28,8 @@ router.get('/artistprofile/:id', async (req, res) => {
     const artData = await Art.findAll({
       where: {
         artist_id: req.params.id
-      }
+      },
+      include: Artist,
     });
 
     const artistData = await Artist.findByPk(req.params.id);
@@ -62,14 +65,18 @@ router.get('/artists', async (req, res) => {
 // Checkout Page Route
 router.get('/checkout', async (req, res) => {
   try {
-   
-    //Add cart data
-    const cart = 'item'
     // Pass serialized data and session flag into template
-    res.render('checkout', { 
-      // cart data
-      cart
-    });
+    res.render('checkout');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Checkout Done Page Route
+router.get('/checkoutSuccess', async (req, res) => {
+  try {
+    // Pass serialized data and session flag into template
+    res.render('checkout_done');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -98,16 +105,22 @@ router.get('/logout', async (req, res) => {
 // Search Page Route
 router.get('/search', async (req, res) => {
   try {
-    const artData = await Art.findAll();
-    const artistData = await Artist.findAll();
+    res.render('search');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-    const artist = artistData.map((project) => project.get({ plain: true }));
+// Search Page Route
+router.get('/search-results/:id', async (req, res) => {
+  console.log("here meep")
+  try {
+    const artData = await Art.findAll({where: { id: req.params.id }});
     const artPieces = artData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('search', { 
-      artist, artPieces
-    });
+     console.log(artPieces)
+     res.render('search', { artPieces });
   } catch (err) {
     res.status(500).json(err);
   }

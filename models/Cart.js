@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Favorites extends Model {}
+class Cart extends Model {}
 
-Favorites.init(
+Cart.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -17,15 +17,7 @@ Favorites.init(
       references: {
         model: "User",
         key: "id",
-      },
-    },
-    artist_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: "Artist",
-        key: "id",
-      },
+      }
     },
     art_id: {
       type: DataTypes.INTEGER,
@@ -41,8 +33,8 @@ Favorites.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Favorites",
+    modelName: "Cart",
   }
 );
 
-module.exports = Favorites;
+module.exports = Cart;

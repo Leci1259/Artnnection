@@ -88,22 +88,19 @@
 
                 <div class="col-25">
                     <div class="container">
-                        <h4>Cart
-                            <span class="price" style="color:black">
-                                <i class="fa fa-shopping-cart"></i>
-                                <b>4</b>
-                            </span>
-                        </h4>
-                        {{#each cart as |item| }}
-                        <p id='price-item'><a href="#">{{item.name}} </a> <span class="price">${{item.price}}</span></p>
-                        <p id='price-item'><a href="#">{{item.name}}</a> <span class="price">${{item.price}}</span></p>
-                        <p id='price-item'><a href="#">{{item.name}}</a> <span class="price">${{item.price}}</span></p>
-                        <p id='price-item'><a href="#">{{item.name}}</a> <span class="price">${{item.price}}
-                            </span></p>
-                        <hr>
-                        <p>Subtotal <span class="price" style="color:white"><b>${{sum of prices}}</b></span></p>
-                        <p>Shipping <span class="price" style="color:white"><b>$15</b></span></p>
-                        <p>Total <span class="price" style="color:white"><b>${{subtotal + shipping}}</b></span>
+                        <div class="product-holder">
+                            <h4>Cart
+                                <span class="price" style="color:black">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </span>
+                            </h4>
+
+
+                        </div>
+                        <p>Subtotal <span class="price subtotal" style="color:white"></span>
+                        </p>
+                        <p>Shipping <span class="price shipping" style="color:white"></span></p>
+                        <p>Total <span class="price finalPrice" style="color:white"></span>
                         </p>
 
 
@@ -113,3 +110,8 @@
         </div>
     </div>
 </section>
+{{#section 'script'}}
+
+<script type="application/javascript" src="js/checkout.js"></script>
+
+{{/section}}
