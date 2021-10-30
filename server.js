@@ -5,7 +5,11 @@ const sequelize = require('./config/connection');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
+const passport = require("passport");
+const crypto =require("crypto");
 const { dirname } = require('path');
+
+require("./config/passport")
 
 const app = express();
 const PORT = process.env.PORT || 3001;
