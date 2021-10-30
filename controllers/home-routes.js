@@ -65,9 +65,18 @@ router.get('/artists', async (req, res) => {
 // Checkout Page Route
 router.get('/checkout', async (req, res) => {
   try {
-    
     // Pass serialized data and session flag into template
     res.render('checkout');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Checkout Done Page Route
+router.get('/checkoutSuccess', async (req, res) => {
+  try {
+    // Pass serialized data and session flag into template
+    res.render('checkout_done');
   } catch (err) {
     res.status(500).json(err);
   }
