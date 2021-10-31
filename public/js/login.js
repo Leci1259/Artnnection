@@ -15,18 +15,8 @@ const loginFormHandler = async (event) => {
 
     if (loginResponse.ok) {
       // If successful, redirect the browser to the profile page
-      const userResponse = await fetch(`/api/user/${email}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      if (userResponse.ok) {
-        const userResponseJson = await userResponse.json();
-        document.location.replace(`/userprofile/${userResponseJson.id}`);
-      } else {
-        alert(userResponse.statusText);
-      }
-        
+      const loginResponseJson = await loginResponse.json();
+      document.location.replace(`/userprofile`);
     } else {
       alert(loginResponse.statusText);
     }
@@ -56,7 +46,7 @@ const signupFormHandler = async (event) => {
 
       if (userResponse.ok) {
         const userResponseJson = await userResponse.json();
-        document.location.replace(`/userprofile/${userResponseJson.id}`);
+        document.location.replace(`/userprofile`);
       } else {
         alert(userResponse.statusText);
       }
