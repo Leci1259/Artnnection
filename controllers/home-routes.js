@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Art, Artist, User, Cart } = require('../models');
+const { Art, Artist, User, Cart, Favorite } = require('../models');
 
 // Home Page Route
 router.get('/', async (req, res) => {

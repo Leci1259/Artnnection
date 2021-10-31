@@ -2,26 +2,26 @@ const { Artist } = require("../models");
 
 const artistData = [
   {
-    name: "Artist 1",
+    name: "Jimmy Paints",
     email: "art1@test.com",
     biography:
-      "I am Artist 1 and I make cool art that focuses on nature. Hit me up!",
+      "I am Jim and I make cool art that focuses on nature. Hit me up!",
     twitter: "@artist_one",
     password: "test1234"
   },
   {
-    name: "Artist 2",
+    name: "Clay Smith",
     email: "art2@test.com",
     biography:
-      "I am Artist 2 and I make clay sculptures. Let me know if you want me to make you a one-of-a-kind custom!",
+      "Hey guys, my name is Clay Smith and I make clay sculptures. Let me know if you want me to make you a one-of-a-kind custom piece!",
     twitter: "@art_grl_2",
     password: "test1234",
   },
   {
-    name: "Artist 3",
+    name: "Loren Elizabeth",
     email: "art3@test.com",
     biography:
-      "I am Artist 3 and I design jpegs for phone and web backgrounds.",
+      "Hey y'all, I'm Loren and I design jpegs for phone and web backgrounds.",
     twitter: "@art3ist",
     password: "test1234",
   },

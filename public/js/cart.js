@@ -6,7 +6,7 @@ var cart={
 const addToCartHandler = async (event) => {
      // use event.target to grab values from that card
      const button = event.target;
-     console.log(button);
+    //  console.log(button);
     const artName = $(button).siblings().eq(1).children().eq(0).text();
     const artPrice= $(button).siblings().eq(1).children().eq(2).text();
     cart.name.push(artName);
@@ -15,11 +15,6 @@ const addToCartHandler = async (event) => {
     localStorage.setItem('cart', JSON.stringify(cart));
 
 }
-
-
-
-
-
 
 document
   .querySelector('.card-holder')

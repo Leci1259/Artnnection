@@ -27,14 +27,14 @@
         {{#each artPieces as |art| }}
         <div class="card" style="width: 18rem;">
             <div class="card-body text-center">
-                <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
+                <img src="{{art.image_location}}" class="card-img-top" alt="{{art.art_name}}">
                 <h5 class="card-title">
                     <!--Insert Piece Name-->
-                    <span>{{art.art_name}}</span> by {{art.Artist.name}}
+                    <span>{{art.art_name}}</span>
                     <br>
                     <span>${{art.price}}</span>
                 </h5>
-                <button class="homebutton">Add to Cart</button>
+                <button class="homebutton cartbutton">Add to Cart</button>
             </div>
         </div>
         {{/each}}
