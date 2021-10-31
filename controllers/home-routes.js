@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Art, Artist, User, Cart } = require('../models');
+const { Art, Artist, User, Cart, Favorite } = require('../models');
 
 // Home Page Route
 router.get('/', async (req, res) => {
@@ -12,10 +12,9 @@ router.get('/', async (req, res) => {
     const artPieces = artData.map((project) => project.get({ plain: true }));
     const artists = artistData.map((project) => project.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
+    // // Pass serialized data and session flag into template
     res.render('homepage', { 
-      artPieces, artists,
-      logged_in: req.session.logged_in 
+      artPieces, artists, logged_in: req.isAuthenticated()
     });
   } catch (err) {
     res.status(500).json(err);
@@ -39,7 +38,7 @@ router.get('/artistprofile/:id', async (req, res) => {
 
     // Pass serialized data and session flag into template
     res.render('artist_profile', { 
-      artist, artPieces
+      artist, artPieces, logged_in: req.isAuthenticated()
     });
   } catch (err) {
     res.status(500).json(err);
@@ -55,7 +54,7 @@ router.get('/artists', async (req, res) => {
 
     // Pass serialized data and session flag into template
     res.render('artists', { 
-      artists
+      artists, logged_in: req.isAuthenticated()
     });
   } catch (err) {
     res.status(500).json(err);
@@ -66,7 +65,7 @@ router.get('/artists', async (req, res) => {
 router.get('/checkout', async (req, res) => {
   try {
     // Pass serialized data and session flag into template
-    res.render('checkout');
+    res.render('checkout', {logged_in: req.isAuthenticated()});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -76,7 +75,7 @@ router.get('/checkout', async (req, res) => {
 router.get('/checkoutSuccess', async (req, res) => {
   try {
     // Pass serialized data and session flag into template
-    res.render('checkout_done');
+    res.render('checkout_done', {logged_in: req.isAuthenticated()});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -86,7 +85,7 @@ router.get('/checkoutSuccess', async (req, res) => {
 router.get('/login', async (req, res) => {
   try {
     // Pass serialized data and session flag into template
-    res.render('login');
+    res.render('login', {logged_in: req.isAuthenticated()});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -105,7 +104,7 @@ router.get('/logout', async (req, res) => {
 // Search Page Route
 router.get('/search', async (req, res) => {
   try {
-    res.render('search');
+    res.render('search', {logged_in: req.isAuthenticated()});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -113,31 +112,30 @@ router.get('/search', async (req, res) => {
 
 // Search Page Route
 router.get('/search-results/:id', async (req, res) => {
-  console.log("here meep")
   try {
     const artData = await Art.findAll({where: { id: req.params.id }});
     const artPieces = artData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
      console.log(artPieces)
-     res.render('search', { artPieces });
+     res.render('search', { artPieces, logged_in: req.isAuthenticated()});
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // User Profile Page Route
-router.get('/userprofile/:id', async (req, res) => {
+router.get('/userprofile', async (req, res) => {
   try {
+    //Need to render user profile page with data from actual userId
+    const userId = req.session.passport.id
+    
     const artData = await Art.findAll();
-    const artistData = await Artist.findAll();
-
-    const artist = artistData.map((project) => project.get({ plain: true }));
     const artPieces = artData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('user_profile', { 
-      artist, artPieces
+      artPieces, logged_in: req.isAuthenticated()
     });
   } catch (err) {
     res.status(500).json(err);
