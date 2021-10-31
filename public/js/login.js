@@ -16,7 +16,8 @@ const loginFormHandler = async (event) => {
     if (loginResponse.ok) {
       // If successful, redirect the browser to the profile page
       const loginResponseJson = await loginResponse.json();
-      document.location.replace(`/userprofile`);
+      const id = loginResponseJson.id;
+      document.location.replace(`/userprofile/${id}`);
     } else {
       alert(loginResponse.statusText);
     }

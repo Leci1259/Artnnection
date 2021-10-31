@@ -16,7 +16,7 @@
 <br>
 
 <section>
-    <h3 class="text-center">
+    {{!-- <h3 class="text-center">
         My Favorites!
     </h3>
     <!--Insert Handlebar-->
@@ -28,22 +28,16 @@
                 <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
                 <h5 class="card-title">
                     <!--Insert Piece Name-->
-                    {{art.name}} by {{art.artist}}
+                    {{art.name}} by {{art.Artist.name}}
                     <br>
                     {{art.price}}
                 </h5>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Select Buy Option</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
                 <br>
                 <button class="homebutton"> <a href="#" class="card-link buy">Buy Me</a></button>
             </div>
         </div>
         {{/each}}
-    </section>
+    </section> --}}
     <section class="cards">
         <div class="card one">
             <div class="card-body">
