@@ -125,17 +125,18 @@ router.get('/search-results/:id', async (req, res) => {
 });
 
 // User Profile Page Route
-router.get('/userprofile', async (req, res) => {
+router.get('/userprofile/:id', async (req, res) => {
   try {
+
     //Need to render user profile page with data from actual userId
     const userId = req.session.passport.id
-    
-    const artData = await Art.findAll();
-    const artPieces = artData.map((project) => project.get({ plain: true }));
+    console.log(req.params.id)
 
-    // Pass serialized data and session flag into template
+    const userUnserialized = await User.findByPk(req.params.id);
+    const user = userUnserialized.get({plain: true})
+    // // Pass serialized data and session flag into template
     res.render('user_profile', { 
-      artPieces, logged_in: req.isAuthenticated()
+      user, logged_in: req.isAuthenticated()
     });
   } catch (err) {
     res.status(500).json(err);
