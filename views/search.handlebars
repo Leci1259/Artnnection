@@ -29,10 +29,10 @@
         {{#each artPieces as |art| }}
         <div class="card" style="width: 18rem;">
             <div class="card-body text-center">
-                <img src="{{art.img}}" class="card-img-top" alt="{{art.name}}">
+                <img src="{{art.image_location}}" class="card-img-top" alt="{{art.name}}">
                 <h5 class="card-title">
                     <!--Insert Piece Name-->
-                    <span>{{art.art_name}}</span> by {{art.Artist.name}}
+                    <span>{{art.art_name}}</span> by {{art.artist_id}}
                     <br>
                     <span id="art-price">${{art.price}} </span>
                 </h5>

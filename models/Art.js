@@ -42,6 +42,9 @@ Art.init(
         key: "id",
       },
     },
+    image_location: {
+      type: DataTypes.STRING
+    }
   },
   {
     sequelize,
