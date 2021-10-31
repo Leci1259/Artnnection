@@ -7,4 +7,14 @@ const withAuth = (req, res, next) => {
   }
 };
 
+// function generatePassword(password) {
+//   //TODO: Hash plaintext password with salt
+// }
+
+// function validPassword(password) {
+//   //validate the input password using hash and salt from db
+// }
+
+// module.exports.generatePassword = generatePassword;
+// module.exports.validPassword = validPassword;
 module.exports = withAuth;
