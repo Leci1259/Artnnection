@@ -1,4 +1,3 @@
-
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -8,17 +7,18 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     //Send a POST request to the API endpoint
-    const response = await fetch('/api/user/login', {
+    const loginResponse = await fetch('/api/user/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
-    if (response.ok) {
-     // If successful, redirect the browser to the profile page
-      document.location.replace('/user_profile');
+    if (loginResponse.ok) {
+      // If successful, redirect the browser to the profile page
+      const loginResponseJson = await loginResponse.json();
+      document.location.replace(`/userprofile`);
     } else {
-      alert(response.statusText);
+      alert(loginResponse.statusText);
     }
   }
 };
@@ -31,16 +31,28 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (name && email && password) {
-    const response = await fetch('/api/user/signup', {
+    const signupResponse = await fetch('/api/user/signup', {
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
-    if (response.ok) {
-      document.location.replace('/user_profile');
+    if (signupResponse.ok) {
+      // If successful, redirect the browser to the profile page
+      const userResponse = await fetch(`/api/user/${email}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (userResponse.ok) {
+        const userResponseJson = await userResponse.json();
+        document.location.replace(`/userprofile`);
+      } else {
+        alert(userResponse.statusText);
+      }
+        
     } else {
-      alert(response.statusText);
+      alert(loginResponse.statusText);
     }
   }
 
