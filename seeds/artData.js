@@ -6,14 +6,14 @@ const artData = [
     price: 1000.0,
     stock: 2,
     artist_id: 3,
-    image_location: '../assets/images/1.jpg'
+    image_location: '/images/1.jpg'
   },
   {
     art_name: "Seeds in the Sky",
     price: 2000.0,
     stock: 5,
     artist_id: 1,
-    image_location: '../assets/images/2.jpg'
+    image_location: '/images/2.jpg'
 
   },
   {
@@ -21,7 +21,7 @@ const artData = [
     price: 3000.0,
     stock: 12,
     artist_id: 2,
-    image_location: '../assets/images/3.jpg'
+    image_location: '/images/3.jpg'
 
   },
   {
@@ -29,7 +29,7 @@ const artData = [
     price: 52345.5,
     stock: 1,
     artist_id: 3,
-    image_location: '../assets/images/4.jpg'
+    image_location: '/images/4.jpg'
 
   },
   {
@@ -37,7 +37,7 @@ const artData = [
     price: 25.0,
     stock: 100,
     artist_id: 3,
-    image_location: '../assets/images/5.jpg'
+    image_location: '/images/5.jpg'
 
   },
 ];
